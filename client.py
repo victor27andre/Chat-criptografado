@@ -33,15 +33,11 @@ def handle_received_message(sock):
 
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-    error_dict = {'001': '',
-                  '002': '',
-                  '003': '',
-                  '004': '',
-                  '005': '',
-                  '006': '',
-                  '007': '',
-                  '008': '',
-                  '009': '',
+    error_dict = {'001': 'usuario nao existente',
+                  '002': 'senha errada',
+                  '003': 'nao tinha usuario ainda',
+                  '004': 'usuario nao logado',
+                  '005': 'usuario nao encontrado'
                   }
     s.connect((HOST, PORT))
 

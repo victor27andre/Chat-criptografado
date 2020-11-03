@@ -65,7 +65,9 @@ class ServerHandler(Thread):
         to_user = data.msgValue.split(' ')[0]
         for client in self.connections:
             if client.username == to_user:
-                msg = cp.prepare_to_send('priv', f'({from_user}): {data.msgValue.split(" ")[1]}')
+                msg = cp.prepare_to_send('priv', f'({from_user}): {" ".join(data.msgValue.split(" ")[1:])}')
+                
+
                 client.conn.sendall(msg.encode())
                 return True
         return False  # nao achou para quem mandar
